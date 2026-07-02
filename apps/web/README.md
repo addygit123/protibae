@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PROTIBAE
+
+> Premium functional nutrition for the next generation.
+
+## Overview
+
+PROTIBAE is a Gen Z-first functional nutrition brand. This repository contains the digital flagship — the web experience that defines how customers discover, trust, and purchase PROTIBAE products.
+
+## Documentation
+
+All engineering documentation lives in [`/docs`](./docs/).
+
+| Document                                                            | Purpose                                               |
+| ------------------------------------------------------------------- | ----------------------------------------------------- |
+| [`00-project-constitution.md`](./docs/00-project-constitution.md)   | Engineering philosophy, principles, and governance    |
+| [`01-project-specification.md`](./docs/01-project-specification.md) | Product vision, personas, and product principles      |
+| [`02-brand-guidelines.md`](./docs/02-brand-guidelines.md)           | Brand identity, voice, and visual philosophy          |
+| [`03-design-system.md`](./docs/03-design-system.md)                 | UI component standards and design principles          |
+| [`04-architecture.md`](./docs/04-architecture.md)                   | System architecture, tech stack, and folder structure |
+| [`05-roadmap.md`](./docs/05-roadmap.md)                             | Implementation milestones and delivery plan           |
+
+## Repository Structure
+
+```
+protibae/
+├── apps/
+│   └── web/               # Primary Next.js web application
+│       ├── app/           # Next.js App Router (pages, layouts, routing)
+│       ├── components/    # Shared UI primitives
+│       ├── features/      # Feature-scoped modules
+│       ├── lib/           # Core utilities and configuration
+│       ├── services/      # External service adapters
+│       ├── hooks/         # Shared React hooks
+│       ├── types/         # Shared TypeScript types
+│       ├── utils/         # Pure utility functions
+│       └── prisma/        # Database schema and migrations
+├── docs/                  # Engineering documentation
+└── .husky/                # Git hooks
+```
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Copy environment variables
+cp apps/web/.env.example apps/web/.env
+
+# Fill in the required values in apps/web/.env
+
+# Install dependencies
+pnpm install
+
+# Start the development server
+pnpm --filter web dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Development
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+# Lint
+pnpm --filter web lint
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Format
+pnpm --filter web format
 
-## Learn More
+# Type check
+pnpm --filter web build
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Requirements
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Node.js 20+
+- pnpm 9+
+- PostgreSQL (via Neon)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Read First
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Every contributor must read [`docs/00-project-constitution.md`](./docs/00-project-constitution.md) before making any changes to this repository.
